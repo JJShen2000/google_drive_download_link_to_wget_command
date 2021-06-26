@@ -14,7 +14,7 @@ def get_file_name(t):
     return t[:i]
 
 def generate_download_decompression_cmd(filename, id):
-    return '!wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate '+"'https://docs.google.com/uc?export=download&id="+id+"' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p\')&id="+id+'" -O '+filename+" && rm -rf /tmp/cookies.txt"
+    return 'wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate '+"'https://docs.google.com/uc?export=download&id="+id+"' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\\1\\n/p\')&id="+id+'" -O '+filename+" && rm -rf /tmp/cookies.txt"
 
 def main():
     if len(sys.argv) != 2:
